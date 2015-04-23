@@ -1,5 +1,4 @@
-package com.flynneffectmusic;
-
+package com.flynneffectmusic.Listener;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -10,29 +9,26 @@ import java.nio.channels.DatagramChannel;
 /**
  * Created by higginsonj on 23/04/2015.
  */
-public class ArtNetListener
+public abstract class GenericListener
 {
-    DatagramChannel channel;
-
+    final int BUFFER_SIZE = 65536;
     final int DMX_UNIVERSE_SIZE = 512;
 
-    final int ARTNET_PORT = 6454;
-    final int ARTNET_PACKET_SIZE = DMX_UNIVERSE_SIZE + 18;
-    final int BUFFER_SIZE = 65536;
+    protected short universe;
+    protected DatagramChannel channel;
 
-    ByteBuffer buffer;
+    protected ByteBuffer buffer;
 
-    byte[] dmxSettings;
+    protected byte[] dmxSettings;
 
-    short universe;
 
-    public ArtNetListener(short universe)
+    public GenericListener(short universe, int port)
     {
         this.universe = universe;
         try
         {
             channel = DatagramChannel.open();
-            channel.socket().bind(new InetSocketAddress(ARTNET_PORT));
+            channel.socket().bind(new InetSocketAddress(port));
         }
         catch (IOException e)
         {
@@ -56,13 +52,13 @@ public class ArtNetListener
         return returnVal;
     }
 
-    public boolean read()
+    protected boolean getPacket(IDMXContainerPacket packet)
     {
         try
         {
             buffer.clear();
             SocketAddress address = channel.receive(buffer);
-            ArtNetPacket packet = new ArtNetPacket(buffer);
+            packet.parse(buffer);
             if(packet.getUniverse() == universe)
             {
                 System.arraycopy(packet.getDmx(), 0, dmxSettings, 0, packet.getDmx().length);
@@ -75,5 +71,4 @@ public class ArtNetListener
         }
         return false;
     }
-
 }

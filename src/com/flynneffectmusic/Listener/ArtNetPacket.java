@@ -1,11 +1,11 @@
-package com.flynneffectmusic;
+package com.flynneffectmusic.Listener;
 
 import java.nio.ByteBuffer;
 
 /**
  * Created by higginsonj on 23/04/2015.
  */
-public class ArtNetPacket
+public class ArtNetPacket implements IDMXContainerPacket
 {
     byte[] identifier;
     short opCode;
@@ -17,7 +17,12 @@ public class ArtNetPacket
 
     byte[] dmx;
 
-    public ArtNetPacket(ByteBuffer buffer)
+    public ArtNetPacket()
+    {
+
+    }
+
+    public void parse(ByteBuffer buffer)
     {
         buffer.flip();
         identifier = new byte[8];

@@ -4,6 +4,9 @@ import com.flynneffectmusic.DMXOPCAdapter.CopyAdapter;
 import com.flynneffectmusic.DMXOPCAdapter.GradientAdapter;
 import com.flynneffectmusic.DMXOPCAdapter.IDMXOPCAdapter;
 import com.flynneffectmusic.DMXOPCAdapter.StraightAdapter;
+import com.flynneffectmusic.Listener.ArtNetListener;
+import com.flynneffectmusic.Listener.IListener;
+import com.flynneffectmusic.Listener.SACNListener;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -31,12 +34,12 @@ public class Main
     static int dmxLength = 3;
 
     static IDMXOPCAdapter adapter;
+    static IListener listener;
 
     public static void main(String[] args)
     {
         readXML();
 
-        ArtNetListener listener = new ArtNetListener(universeID);
         OPCTransmitter transmitter = new OPCTransmitter(destination, channel);
 
         byte[] dmx = null;
@@ -65,7 +68,6 @@ public class Main
             Document settingsDoc = builder.build(settingsFile);
             Element rootElement = settingsDoc.getRootElement();
             dmxAddress = Integer.parseInt(rootElement.getChild("dmxAddress").getValue()) - 1;
-            universeID = Short.parseShort(rootElement.getChild("artnetUniverseID").getValue());
             destination = rootElement.getChild("opcDestination").getValue();
             channel = Integer.parseInt(rootElement.getChild("opcChannel").getValue());
             pixelCount = Integer.parseInt(rootElement.getChild("opcPixelCount").getValue());
@@ -84,6 +86,16 @@ public class Main
                 case "gradient":
                     adapter = new GradientAdapter(pixelCount);
                     dmxLength = IDMXOPCAdapter.PIXEL_LENGTH * 2;
+                    break;
+            }
+
+            switch(rootElement.getChild("listener").getAttributeValue("type"))
+            {
+                case "artnet":
+                    listener = new ArtNetListener(Short.parseShort(rootElement.getChild("dmxAddress").getValue()));
+                    break;
+                case "sacn":
+                    listener = new SACNListener(Short.parseShort(rootElement.getChild("dmxAddress").getValue()));
                     break;
             }
         }

@@ -2,11 +2,11 @@
 <settings>
     <dmxAddress>1</dmxAddress>
 
-    <artnetUniverseID>0</artnetUniverseID>
+    <listener type="sacn" universe="1" />
 
     <opcDestination>localhost</opcDestination>
     <opcChannel>1</opcChannel>
     <opcPixelCount>64</opcPixelCount>
 
-    <adapterMethod>gradient</adapterMethod>
+    <adapterMethod>copy</adapterMethod>
 </settings>
