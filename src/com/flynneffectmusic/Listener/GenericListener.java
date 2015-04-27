@@ -22,18 +22,10 @@ public abstract class GenericListener
     protected byte[] dmxSettings;
 
 
-    public GenericListener(short universe, int port)
+    public GenericListener(short universe)
     {
         this.universe = universe;
-        try
-        {
-            channel = DatagramChannel.open();
-            channel.socket().bind(new InetSocketAddress(port));
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+
         buffer = ByteBuffer.allocate(BUFFER_SIZE);
         dmxSettings = new byte[DMX_UNIVERSE_SIZE];
         for(int i = 0; i < DMX_UNIVERSE_SIZE; i++)

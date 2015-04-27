@@ -95,7 +95,8 @@ public class Main
                     listener = new ArtNetListener(Short.parseShort(rootElement.getChild("dmxAddress").getValue()));
                     break;
                 case "sacn":
-                    listener = new SACNListener(Short.parseShort(rootElement.getChild("dmxAddress").getValue()));
+                    String listenAddress = rootElement.getChild("listener").getAttributeValue("listenAddress");
+                    listener = new SACNListener(Short.parseShort(rootElement.getChild("dmxAddress").getValue()), listenAddress);
                     break;
             }
         }

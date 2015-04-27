@@ -30,6 +30,8 @@ public class SACNPacket implements IDMXContainerPacket
         int vector2 = buffer.getInt();
         byte[] sourceName = new byte[64];
         buffer.get(sourceName);
+        String sourceString = new String(sourceName);
+
         byte priority = buffer.get();
         short reserved = buffer.getShort();
         byte sequenceNumber = buffer.get();

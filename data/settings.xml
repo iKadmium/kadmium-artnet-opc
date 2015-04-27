@@ -2,7 +2,7 @@
 <settings>
     <dmxAddress>1</dmxAddress>
 
-    <listener type="sacn" universe="1" />
+    <listener type="sacn" universe="1" listenAddress="127.0.0.1" />
 
     <opcDestination>localhost</opcDestination>
     <opcChannel>1</opcChannel>

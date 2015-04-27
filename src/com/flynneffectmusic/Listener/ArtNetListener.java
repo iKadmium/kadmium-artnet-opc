@@ -16,7 +16,16 @@ public class ArtNetListener extends GenericListener implements IListener
 
     public ArtNetListener(short universe)
     {
-       super(universe, ARTNET_PORT);
+       super(universe);
+        try
+        {
+            channel = DatagramChannel.open();
+            channel.socket().bind(new InetSocketAddress(ARTNET_PORT));
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     @Override
