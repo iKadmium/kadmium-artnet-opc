@@ -1,16 +1,16 @@
 package com.flynneffectmusic.Listener;
 
 
+import org.jdom2.Element;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.net.SocketAddress;
-import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 
 /**
  * Created by higginsonj on 23/04/2015.
  */
-public class ArtNetListener extends GenericListener implements IListener
+public class ArtNetListener extends DMXListener
 {
     static final int ARTNET_PORT = 6454;
 
@@ -33,4 +33,13 @@ public class ArtNetListener extends GenericListener implements IListener
     {
         return getPacket(new ArtNetPacket());
     }
+
+    public Element serialize()
+    {
+        Element element = new Element("listener");
+        element.setAttribute("type", "artnet");
+        element.setAttribute("universe", universe + "");
+        return element;
+    }
+
 }

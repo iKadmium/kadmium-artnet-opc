@@ -1,5 +1,7 @@
 package com.flynneffectmusic.Listener;
 
+import org.jdom2.Element;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
@@ -9,7 +11,7 @@ import java.nio.channels.DatagramChannel;
 /**
  * Created by higginsonj on 23/04/2015.
  */
-public abstract class GenericListener
+public abstract class DMXListener
 {
     final int BUFFER_SIZE = 65536;
     final int DMX_UNIVERSE_SIZE = 512;
@@ -17,12 +19,25 @@ public abstract class GenericListener
     protected short universe;
     protected DatagramChannel channel;
 
+    public String getListenAddress()
+    {
+        return listenAddress;
+    }
+
+    public void setListenAddress(String listenAddress)
+    {
+        this.listenAddress = listenAddress;
+    }
+
+    String listenAddress;
+
     protected ByteBuffer buffer;
 
     protected byte[] dmxSettings;
 
+    public abstract boolean read();
 
-    public GenericListener(short universe)
+    public DMXListener(short universe)
     {
         this.universe = universe;
 
@@ -63,4 +78,30 @@ public abstract class GenericListener
         }
         return false;
     }
+
+    public void setUniverse(short universe)
+    {
+        this.universe = universe;
+    }
+
+    public short getUniverse()
+    {
+        return universe;
+    }
+
+    public static DMXListener deserialize(Element element)
+    {
+        String address = element.getAttributeValue("listenAddress");
+        short universe = Short.parseShort(element.getAttributeValue("universe") );
+        switch(element.getAttributeValue("type"))
+        {
+            default:
+            case "sacn":
+                return new SACNListener(universe, address);
+            case "artnet":
+                return new ArtNetListener(universe);
+        }
+    }
+
+    public abstract Element serialize();
 }

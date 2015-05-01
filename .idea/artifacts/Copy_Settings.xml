@@ -2,7 +2,7 @@
   <artifact build-on-make="true" name="Copy Settings">
     <output-path>$PROJECT_DIR$/jar</output-path>
     <root id="root">
-      <element id="file-copy" path="$PROJECT_DIR$/data/settings.xml" />
+      <element id="dir-copy" path="$PROJECT_DIR$/data" />
     </root>
   </artifact>
 </component>

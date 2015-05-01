@@ -1,19 +1,18 @@
 package com.flynneffectmusic.DMXOPCAdapter;
 
+import org.jdom2.Element;
+
 /**
  * Created by higginsonj on 23/04/2015.
  */
-public class GradientAdapter implements IDMXOPCAdapter
+public class GradientAdapter extends DMXOPCAdapter
 {
-    private int pixelCount;
-
-    public GradientAdapter(int pixelCount)
+    public GradientAdapter()
     {
-        this.pixelCount = pixelCount;
     }
 
     @Override
-    public byte[] adaptDMX(byte[] dmx)
+    public byte[] adaptDMX(byte[] dmx, int pixelCount)
     {
         byte[] pixelValues = new byte[pixelCount * PIXEL_LENGTH];
         for(int i = 0; i < pixelCount; i++)
@@ -24,6 +23,12 @@ public class GradientAdapter implements IDMXOPCAdapter
             }
         }
         return pixelValues;
+    }
+
+    @Override
+    public int getDMXLength(int pixelCount)
+    {
+        return DMXOPCAdapter.PIXEL_LENGTH * 2;
     }
 
     public byte lerp(int position, int maxPosition, byte startingValue, byte endingValue)
@@ -37,4 +42,13 @@ public class GradientAdapter implements IDMXOPCAdapter
     {
         return (float)(source & 0xFF);
     }
+
+    @Override
+    public Element serialize()
+    {
+        Element adapterElement = new Element("adapterMethod");
+        adapterElement.setText("gradient");
+        return adapterElement;
+    }
+
 }

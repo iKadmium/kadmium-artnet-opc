@@ -1,12 +1,10 @@
 <?xml version="1.0" ?>
 <settings>
     <dmxAddress>1</dmxAddress>
-
+    <httpServerPort>6789</httpServerPort>
     <listener type="sacn" universe="1" listenAddress="127.0.0.1" />
+    <pixelCount>64</pixelCount>
+    <adapter method="copy" />
+    <opcTransmitter destination="localhost" channel="1" />
 
-    <opcDestination>localhost</opcDestination>
-    <opcChannel>1</opcChannel>
-    <opcPixelCount>64</opcPixelCount>
-
-    <adapterMethod>copy</adapterMethod>
 </settings>

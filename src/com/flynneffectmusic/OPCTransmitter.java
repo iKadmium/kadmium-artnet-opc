@@ -1,5 +1,7 @@
 package com.flynneffectmusic;
 
+import org.jdom2.Element;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -31,14 +33,9 @@ public class OPCTransmitter
 		client.close();
 	}
 
-	public String GetAddress()
+	public String getAddress()
 	{
-		return address.toString();
-	}
-
-	public String GetType()
-	{
-		return "opc";
+		return address.getHost();
 	}
 
 	public void SendPixels(byte[] data)
@@ -70,7 +67,7 @@ public class OPCTransmitter
         }
 	}
 	
-	public int GetChannel()
+	public int getChannel()
 	{
 		return channel;
 	}
@@ -79,5 +76,25 @@ public class OPCTransmitter
     public String toString()
     {
         return "OPC Transmitter - " + client.getURI().getHost();
+    }
+
+    public void setChannel(int channel)
+    {
+        this.channel = channel;
+    }
+
+    public Element serialize()
+    {
+        Element element = new Element("opcTransmitter");
+        element.setAttribute("destination", getAddress());
+        element.setAttribute("channel", getChannel() + "");
+        return element;
+    }
+
+    public static OPCTransmitter deserialize(Element opcTransmitter)
+    {
+        int channel = Integer.parseInt(opcTransmitter.getAttributeValue("channel"));
+        String destination = opcTransmitter.getAttributeValue("destination");
+        return new OPCTransmitter(destination, channel);
     }
 }

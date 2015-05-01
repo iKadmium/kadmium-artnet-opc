@@ -1,22 +1,29 @@
 package com.flynneffectmusic.DMXOPCAdapter;
 
+import org.jdom2.Element;
+
 /**
  * Created by higginsonj on 23/04/2015.
  */
-public class StraightAdapter implements IDMXOPCAdapter
+public class StraightAdapter extends DMXOPCAdapter
 {
-    private int pixelCount;
-
-    public StraightAdapter(int pixelCount)
+    public StraightAdapter()
     {
-        this.pixelCount = pixelCount;
+
     }
 
     @Override
-    public byte[] adaptDMX(byte[] dmx)
+    public Element serialize()
     {
-        byte[] pixelValues = new byte[pixelCount * IDMXOPCAdapter.PIXEL_LENGTH];
-        System.arraycopy(dmx, 0, pixelValues, 0, dmx.length);
-        return pixelValues;
+        Element adapterElement = new Element("adapterMethod");
+        adapterElement.setText("straight");
+        return adapterElement;
     }
+
+    @Override
+    public int getDMXLength(int pixelCount)
+    {
+        return DMXOPCAdapter.PIXEL_LENGTH * pixelCount;
+    }
+
 }

@@ -1,25 +1,28 @@
 package com.flynneffectmusic.DMXOPCAdapter;
 
+import org.jdom2.Element;
+
 /**
  * Created by higginsonj on 23/04/2015.
  */
-public class CopyAdapter implements IDMXOPCAdapter
+public class CopyAdapter extends DMXOPCAdapter
 {
-    private int pixelCount;
-
-    public CopyAdapter(int pixelCount)
+    public CopyAdapter()
     {
-        this.pixelCount = pixelCount;
+
+    }
+
+
+    @Override
+    public Element serialize()
+    {
+        return serialize("copy");
     }
 
     @Override
-    public byte[] adaptDMX(byte[] dmx)
+    public int getDMXLength(int pixelCount)
     {
-        byte[] pixelValues = new byte[pixelCount * IDMXOPCAdapter.PIXEL_LENGTH];
-        for(int i = 0; i < pixelCount; i++)
-        {
-            System.arraycopy(dmx, 0, pixelValues, i * PIXEL_LENGTH, PIXEL_LENGTH);
-        }
-        return pixelValues;
+        return PIXEL_LENGTH;
     }
+
 }
