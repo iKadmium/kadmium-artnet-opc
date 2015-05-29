@@ -81,7 +81,7 @@ public class Main
             transmitter = OPCTransmitter.deserialize(rootElement.getChild("opcTransmitter"));
             adapter = DMXOPCAdapter.deserialize(rootElement.getChild("adapter"));
             listener = DMXListener.deserialize(rootElement.getChild("listener"));
-
+            webServerPort = Short.parseShort((rootElement.getChild("httpServerPort").getValue()));
 
         }
         catch (JDOMException | IOException e)
@@ -167,10 +167,12 @@ public class Main
         Document settingsDoc = new Document(rootElement);
 
         rootElement.getChildren().add(createElement("dmxAddress", dmxAddress + ""));
-        rootElement.getChildren().add(createElement("pixelCount", pixelCount + ""));
-        rootElement.getChildren().add(transmitter.serialize());
-        rootElement.getChildren().add(adapter.serialize());
+        rootElement.getChildren().add(createElement("httpServerPort", webServerPort + ""));
         rootElement.getChildren().add(listener.serialize());
+        rootElement.getChildren().add(createElement("pixelCount", pixelCount + ""));
+        rootElement.getChildren().add(adapter.serialize());
+        rootElement.getChildren().add(transmitter.serialize());
+
 
         XMLOutputter xmlOutputter = new XMLOutputter(Format.getPrettyFormat());
         try
@@ -316,20 +318,4 @@ public class Main
 
         return head;
     }
-
-    private static String getFileContents(File file) throws IOException
-    {
-        FileReader fileReader = new FileReader(file);
-        BufferedReader reader = new BufferedReader(fileReader);
-        StringBuilder builder = new StringBuilder();
-        String currentLine;
-        while((currentLine = reader.readLine()) != null)
-        {
-            builder.append(currentLine);
-        }
-
-        return builder.toString();
-    }
-
-
 }

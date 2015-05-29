@@ -5,6 +5,7 @@
       <element id="module-output" name="kadmium-artnet-opc" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jdom-2.0.4.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/javawebsocket.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jlhttp.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

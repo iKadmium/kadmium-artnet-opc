@@ -6,5 +6,4 @@
     <pixelCount>64</pixelCount>
     <adapter method="copy" />
     <opcTransmitter destination="localhost" channel="1" />
-
 </settings>
