@@ -3,7 +3,6 @@ package com.flynneffectmusic.Listener;
 import org.jdom2.Element;
 
 import java.io.IOException;
-import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
@@ -52,10 +51,8 @@ public abstract class DMXListener
     public byte[] getDMX(int start, int length)
     {
         byte[] returnVal = new byte[length];
-        for(int i = 0; i < length; i++)
-        {
-            returnVal[i] = dmxSettings[i + start];
-        }
+
+        System.arraycopy(dmxSettings, start, returnVal, 0, length);
         return returnVal;
     }
 

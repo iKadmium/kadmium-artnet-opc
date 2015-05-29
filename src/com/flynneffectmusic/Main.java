@@ -118,7 +118,7 @@ public class Main
         httpServer.start();
     }
 
-    private static HTTPServer.ContextHandler getRootHandler() throws IOException
+    private static HTTPServer.ContextHandler getRootHandler()
     {
         HTTPServer.ContextHandler handler = (request, response) ->
         {
@@ -188,7 +188,7 @@ public class Main
 
     }
 
-    private static String getIndexContent(String message) throws IOException
+    private static String getIndexContent(String message)
     {
         Element html = new Element("html");
         DocType docType = new DocType("html");

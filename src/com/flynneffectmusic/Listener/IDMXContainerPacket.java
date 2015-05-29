@@ -7,7 +7,7 @@ import java.nio.ByteBuffer;
  */
 public interface IDMXContainerPacket
 {
-    public void parse(ByteBuffer buffer);
-    public byte[] getDmx();
-    public short getUniverse();
+    void parse(ByteBuffer buffer);
+    byte[] getDmx();
+    short getUniverse();
 }
