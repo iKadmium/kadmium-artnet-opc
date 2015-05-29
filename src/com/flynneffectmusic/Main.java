@@ -8,6 +8,7 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+import org.jdom2.input.sax.XMLReaders;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
@@ -70,7 +71,7 @@ public class Main
 
     public static void readXML()
     {
-        SAXBuilder builder = new SAXBuilder();
+        SAXBuilder builder = new SAXBuilder(XMLReaders.XSDVALIDATING);
         try
         {
             Document settingsDoc = builder.build(settingsFile);

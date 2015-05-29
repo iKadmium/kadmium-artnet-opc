@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:complexType name="listener">
+        <xsd:sequence/>
+        <xsd:attribute name="type" type="xsd:string"/>
+        <xsd:attribute name="universe" type="xsd:unsignedShort"/>
+        <xsd:attribute name="listenAddress" type="xsd:string"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="adapter">
+        <xsd:sequence/>
+        <xsd:attribute name="method" type="xsd:string"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="opcTransmitter">
+        <xsd:sequence/>
+        <xsd:attribute name="destination" type="xsd:string"/>
+        <xsd:attribute name="channel" type="xsd:int"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="settings">
+        <xsd:choice minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="dmxAddress" type="xsd:unsignedShort"/>
+            <xsd:element name="httpServerPort" type="xsd:unsignedShort"/>
+            <xsd:element name="listener" type="listener"/>
+            <xsd:element name="pixelCount" type="xsd:unsignedShort"/>
+            <xsd:element name="adapter" type="adapter"/>
+            <xsd:element name="opcTransmitter" type="opcTransmitter"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+
+
+    <xsd:element name="settings" type="settings"/>
+</xsd:schema>
