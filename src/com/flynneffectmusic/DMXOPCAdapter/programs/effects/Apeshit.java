@@ -1,14 +1,17 @@
-package com.flynneffectmusic.DMXOPCAdapter.programs;
+package com.flynneffectmusic.DMXOPCAdapter.programs.effects;
 
 import com.flynneffectmusic.DMXOPCAdapter.programs.Pixel;
 import com.flynneffectmusic.DMXOPCAdapter.programs.PixelFixture;
+import com.flynneffectmusic.DMXOPCAdapter.programs.PixelMath;
+import org.jdom2.Element;
 
 import java.util.Collection;
 
 /**
  * Created by higginsonj on 3/12/2014.
  */
-public class PixelApeshit extends PixelEffect
+public class Apeshit
+    extends PixelEffect
 {
     int fadeTime;
     int countdown;
@@ -17,7 +20,7 @@ public class PixelApeshit extends PixelEffect
 
     float apeshit = 0.0f;
 
-    public PixelApeshit(int fadeTime, float coverage)
+    private Apeshit(int fadeTime, float coverage)
     {
         this.fadeTime = fadeTime;
         countdown = 1;
@@ -30,8 +33,7 @@ public class PixelApeshit extends PixelEffect
         countdown--;
         if(countdown <= 0)
         {
-            int trueCountdown = Math.round(PixelMath.Clamp(fadeTime / apeshit, 0, 10f));
-            countdown = trueCountdown;
+            countdown = Math.round(PixelMath.Clamp(fadeTime / apeshit, 0, 10f));
             int pixelCount = (int)Math.floor((double)((1 - coverage) * fixture.GetPixelMap().size()));
             currentPixels = fixture.GetRandom(pixelCount);
         }
@@ -63,5 +65,12 @@ public class PixelApeshit extends PixelEffect
     public boolean IsActive()
     {
         return apeshit > 0.0f;
+    }
+
+    public static Apeshit deserialize(Element element)
+    {
+        int fadeTime = Integer.parseInt(element.getAttributeValue("fadeTime"));
+        int coverage = Integer.parseInt(element.getAttributeValue("coverage"));
+        return new Apeshit(fadeTime, coverage);
     }
 }

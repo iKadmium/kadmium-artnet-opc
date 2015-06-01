@@ -1,7 +1,8 @@
-package com.flynneffectmusic.DMXOPCAdapter.programs;
+package com.flynneffectmusic.DMXOPCAdapter.programs.effects;
 
 import com.flynneffectmusic.DMXOPCAdapter.programs.Pixel;
 import com.flynneffectmusic.DMXOPCAdapter.programs.PixelFixture;
+import org.jdom2.Element;
 
 public class Mirror extends PixelEffect
 {
@@ -60,6 +61,13 @@ public class Mirror extends PixelEffect
     public boolean IsActive()
     {
         return true;
+    }
+
+    public static Mirror deserialize(Element element)
+    {
+        boolean horizontal = Boolean.parseBoolean(element.getAttributeValue("horizontal"));
+        boolean vertical = Boolean.parseBoolean(element.getAttributeValue("vertical"));
+        return new Mirror(horizontal, vertical);
     }
 
 }

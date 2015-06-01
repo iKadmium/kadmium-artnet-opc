@@ -1,6 +1,7 @@
-package com.flynneffectmusic.DMXOPCAdapter.programs;
+package com.flynneffectmusic.DMXOPCAdapter.programs.generators;
 
 import com.flynneffectmusic.DMXOPCAdapter.programs.PixelFixture;
+import org.jdom2.Element;
 
 public abstract class PixelGenerator
 {
@@ -39,5 +40,17 @@ public abstract class PixelGenerator
 	}
 	
 	public abstract void Generate(PixelFixture fixture, float offset);
-	
+
+    public static PixelGenerator deserialize(Element element)
+    {
+        switch(element.getName())
+        {
+            case "hsb":
+                return HSBGenerator.deserialize(element);
+            case "image":
+                return ImageGenerator.deserialize(element);
+            default:
+                return null;
+        }
+    }
 }

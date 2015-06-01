@@ -1,10 +1,12 @@
-package com.flynneffectmusic.DMXOPCAdapter.programs;
+package com.flynneffectmusic.DMXOPCAdapter.programs.effects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.flynneffectmusic.DMXOPCAdapter.programs.Pixel;
 import com.flynneffectmusic.DMXOPCAdapter.programs.PixelFixture;
+import com.flynneffectmusic.DMXOPCAdapter.programs.PixelMath;
+import org.jdom2.Element;
 
 public class Translate extends PixelEffect
 {
@@ -28,7 +30,7 @@ public class Translate extends PixelEffect
 		{
 			offset *= -1;
 		}
-		offset = PixelMath.Wrap(offset, 0, (float)dimensions ); //always shifting to the right
+		offset = PixelMath.Wrap(offset, 0, (float) dimensions); //always shifting to the right
 		
 		int trueOffset = Math.round(offset);
 		
@@ -83,6 +85,14 @@ public class Translate extends PixelEffect
     public boolean IsActive()
     {
         return chase > 0.0f;
+    }
+
+    public static Translate deserialize(Element element)
+    {
+        boolean horizontal = Boolean.parseBoolean(element.getAttributeValue("horizontal"));
+        boolean positive = Boolean.parseBoolean(element.getAttributeValue("positive"));
+
+        return new Translate(horizontal, positive);
     }
 
 }

@@ -15,9 +15,7 @@ public class StraightAdapter extends DMXOPCAdapter
     @Override
     public Element serialize()
     {
-        Element adapterElement = new Element("adapterMethod");
-        adapterElement.setText("straight");
-        return adapterElement;
+        return serialize("straight");
     }
 
     @Override

@@ -12,24 +12,7 @@ public class PixelFixture
     int xCount;
     int yCount;
 
-    public PixelFixture(String name, int xCount, int yCount)
-    {
-        pixels = new HashMap<>();
-        this.xCount = xCount;
-        this.yCount = yCount;
-
-        for (int y = 0; y < yCount; y++)
-        {
-            for (int x = 0; x < xCount; x++)
-            {
-                Point2D point = new Point2D(x, y);
-                Pixel pixel = new Pixel();
-                pixels.put(point, pixel);
-            }
-        }
-    }
-
-    public PixelFixture(String name, Element groupElement, int xCount, int yCount)
+    public PixelFixture(int xCount, int yCount)
     {
         pixels = new HashMap<>();
         this.xCount = xCount;

@@ -12,6 +12,8 @@
     <xsd:complexType name="adapter">
         <xsd:sequence/>
         <xsd:attribute name="method" type="xsd:string"/>
+        <xsd:attribute name="xCount" type="xsd:positiveInteger"/>
+        <xsd:attribute name="yCount" type="xsd:positiveInteger"/>
     </xsd:complexType>
 
     <xsd:complexType name="opcTransmitter">

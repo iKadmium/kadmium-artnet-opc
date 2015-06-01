@@ -12,7 +12,6 @@ public class CopyAdapter extends DMXOPCAdapter
 
     }
 
-
     @Override
     public Element serialize()
     {

@@ -1,10 +1,12 @@
-package com.flynneffectmusic.DMXOPCAdapter.programs;
+package com.flynneffectmusic.DMXOPCAdapter.programs.effects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.flynneffectmusic.DMXOPCAdapter.programs.Pixel;
 import com.flynneffectmusic.DMXOPCAdapter.programs.PixelFixture;
+import com.flynneffectmusic.DMXOPCAdapter.programs.PixelMath;
+import org.jdom2.Element;
 
 public class Flip extends PixelEffect
 {
@@ -63,6 +65,12 @@ public class Flip extends PixelEffect
     public boolean IsActive()
     {
         return true;
+    }
+
+    public static Flip deserialize(Element element)
+    {
+        boolean horizontal = Boolean.parseBoolean(element.getAttributeValue("horizontal"));
+        return new Flip(horizontal);
     }
 
 }

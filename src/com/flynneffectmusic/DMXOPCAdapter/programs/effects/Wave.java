@@ -1,10 +1,15 @@
-package com.flynneffectmusic.DMXOPCAdapter.programs;
+package com.flynneffectmusic.DMXOPCAdapter.programs.effects;
 
 import java.util.ArrayList;
 
-import javafx.geometry.Point2D;
+import com.flynneffectmusic.DMXOPCAdapter.programs.AnimatablePropertyType;
 import com.flynneffectmusic.DMXOPCAdapter.programs.Pixel;
 import com.flynneffectmusic.DMXOPCAdapter.programs.PixelFixture;
+import com.flynneffectmusic.DMXOPCAdapter.programs.PixelMath;
+import com.flynneffectmusic.DMXOPCAdapter.programs.effects.PixelEffect;
+import javafx.geometry.Point2D;
+import org.jdom2.Element;
+
 
 public class Wave extends PixelEffect
 {
@@ -20,7 +25,7 @@ public class Wave extends PixelEffect
 
     float chase = 0.0f;
 	
-	public Wave(AnimatablePropertyType propertyType, float pixelShiftDelta, boolean horizontal, boolean vertical, float speedMultiplier)
+	public  Wave(AnimatablePropertyType propertyType, float pixelShiftDelta, boolean horizontal, boolean vertical, float speedMultiplier)
 	{
 		this.pixelShiftDelta = pixelShiftDelta;
 		this.propertyType = propertyType;
@@ -28,8 +33,8 @@ public class Wave extends PixelEffect
 		this.vertical = vertical;
 		this.speedMultiplier = speedMultiplier;
 	}
-	
-	public Wave(AnimatablePropertyType propertyType, float pixelShiftDelta, boolean horizontal, boolean vertical,
+
+    private Wave(AnimatablePropertyType propertyType, float pixelShiftDelta, boolean horizontal, boolean vertical,
 	        float speedMultiplier, float cutoffThresholdMin, float cutoffThresholdMax)
     {
         this(propertyType, pixelShiftDelta, horizontal, vertical, speedMultiplier);
@@ -92,6 +97,28 @@ public class Wave extends PixelEffect
     public boolean IsActive()
     {
         return chase > 0.0f;
+    }
+
+    public static Wave deserialize(Element element)
+    {
+        AnimatablePropertyType propertyType = AnimatablePropertyType.valueOf(element.getAttributeValue("property").toUpperCase());
+        float pixelShiftDelta = Float.parseFloat(element.getAttributeValue("pixelShiftDelta"));
+        boolean horizontal = Boolean.parseBoolean(element.getAttributeValue("horizontal"));
+        boolean vertical = Boolean.parseBoolean(element.getAttributeValue("vertical"));
+        float speedMultiplier = Float.parseFloat(element.getAttributeValue("speedMultiplier"));
+
+        if(element.getAttribute("cutoffMin") != null)
+        {
+            float cutoffMin = Float.parseFloat(element.getAttributeValue("cutoffMin"));
+            float cutoffMax = Float.parseFloat(element.getAttributeValue("cutoffMax"));
+            return new Wave(propertyType, pixelShiftDelta, horizontal, vertical, speedMultiplier, cutoffMin, cutoffMax);
+        }
+        else
+        {
+            return new Wave(propertyType, pixelShiftDelta, horizontal, vertical, speedMultiplier);
+        }
+
+
     }
 
 }

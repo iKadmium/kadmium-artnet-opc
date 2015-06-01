@@ -1,9 +1,9 @@
-package com.flynneffectmusic.DMXOPCAdapter.programs;
+package com.flynneffectmusic.DMXOPCAdapter.programs.effects;
 
 import java.util.ArrayList;
 
-import com.flynneffectmusic.DMXOPCAdapter.programs.Pixel;
-import com.flynneffectmusic.DMXOPCAdapter.programs.PixelFixture;
+import com.flynneffectmusic.DMXOPCAdapter.programs.*;
+import org.jdom2.Element;
 
 public class Shift extends PixelEffect
 {
@@ -75,6 +75,17 @@ public class Shift extends PixelEffect
     public boolean IsActive()
     {
         return chase > 0.0f;
+    }
+
+    public static Shift deserialize(Element element)
+    {
+        AnimatablePropertyType propertyType = AnimatablePropertyType.valueOf(element.getAttributeValue("property").toUpperCase());
+        float pixelShiftDelta = Float.parseFloat(element.getAttributeValue("pixelShiftDelta"));
+        boolean horizontal = Boolean.parseBoolean(element.getAttributeValue("horizontal"));
+        boolean leftToRight = Boolean.parseBoolean(element.getAttributeValue("leftToRight"));
+        boolean topToBottom = Boolean.parseBoolean(element.getAttributeValue("topToBottom"));
+
+        return new Shift(propertyType, pixelShiftDelta, horizontal, leftToRight, topToBottom);
     }
 
 }

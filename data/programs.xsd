@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:complexType name="program">
+        <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="unbounded">
+                <xsd:element name="hsb" type="hsb"/>
+                <xsd:element name="image" type="image"/>
+            </xsd:choice>
+            <xsd:sequence minOccurs="0" maxOccurs="1">
+                <xsd:element name="effects" type="effects"/>
+            </xsd:sequence>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="effects">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="apeshit" type="apeshit"/>
+            <xsd:element name="chase" type="chase"/>
+            <xsd:element name="flip" type="flip"/>
+            <xsd:element name="mirror" type="mirror"/>
+            <xsd:element name="shift" type="shift"/>
+            <xsd:element name="strobe" type="strobe"/>
+            <xsd:element name="translate" type="translate"/>
+            <xsd:element name="wave" type="wave"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="apeshit">
+        <xsd:sequence/>
+        <xsd:attribute name="fadetime" type="xsd:positiveInteger" use="required"/>
+        <xsd:attribute name="coverage" type="positiveFloat" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="chase">
+        <xsd:sequence/>
+        <xsd:attribute name="nodes" type="xsd:integer" use="required"/>
+        <xsd:attribute name="coverage" type="positiveFloat" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="flip">
+        <xsd:sequence/>
+        <xsd:attribute name="horizontal" type="xsd:boolean" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="mirror">
+        <xsd:sequence/>
+        <xsd:attribute name="horizontal" type="xsd:boolean" use="required"/>
+        <xsd:attribute name="vertical" type="xsd:boolean" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="shift">
+        <xsd:sequence/>
+        <xsd:attribute name="property" type="propertyType" use="required"/>
+        <xsd:attribute name="pixelShiftDelta" type="positiveFloat" use="required"/>
+        <xsd:attribute name="horizontal" type="xsd:boolean" use="required"/>
+        <xsd:attribute name="leftToRight" type="xsd:boolean" use="required"/>
+        <xsd:attribute name="topToBottom" type="xsd:boolean" use="required"/>
+        <xsd:attribute name="cutoffMin" type="xsd:float" use="optional"/>
+        <xsd:attribute name="cutoffMax" type="xsd:float" use="optional"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="strobe">
+        <xsd:sequence/>
+        <xsd:attribute name="fadetime" type="xsd:positiveInteger" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="translate">
+        <xsd:sequence/>
+        <xsd:attribute name="horizontal" type="xsd:boolean" use="required"/>
+        <xsd:attribute name="positive" type="xsd:boolean" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="wave">
+        <xsd:sequence/>
+        <xsd:attribute name="property" type="propertyType" use="required"/>
+        <xsd:attribute name="pixelShiftDelta" type="positiveFloat" use="required"/>
+        <xsd:attribute name="horizontal" type="xsd:boolean" use="required"/>
+        <xsd:attribute name="vertical" type="xsd:boolean" use="required"/>
+        <xsd:attribute name="speedMultiplier" type="positiveFloat" use="required"/>
+        <xsd:attribute name="cutoffMin" type="xsd:float" use="optional"/>
+        <xsd:attribute name="cutoffMax" type="xsd:float" use="optional"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="propertyType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="hue"/>
+            <xsd:enumeration value="saturation"/>
+            <xsd:enumeration value="brightness"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="hsb">
+        <xsd:sequence/>
+        <xsd:attribute name="hue" type="normalizedFloat" use="required"/>
+        <xsd:attribute name="saturation" type="normalizedFloat" use="required"/>
+        <xsd:attribute name="brightness" type="normalizedFloat" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="image">
+        <xsd:sequence/>
+        <xsd:attribute name="src" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="normalizedFloat" xml:base="xsd:float">
+        <xsd:restriction base="xsd:float">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="1"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="positiveFloat">
+        <xsd:restriction base="xsd:float">
+            <xsd:minExclusive value="0"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="programs">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="program" type="program"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="programs" type="programs"/>
+</xsd:schema>

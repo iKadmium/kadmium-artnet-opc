@@ -2,8 +2,8 @@
 <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="settings.xsd">
     <dmxAddress>1</dmxAddress>
     <httpServerPort>6789</httpServerPort>
-    <listener type="sacn" universe="1" listenAddress="10.1.1.1" />
+    <listener type="sacn" universe="1" listenAddress="10.1.1.1"/>
     <pixelCount>64</pixelCount>
-    <adapter method="copy" />
+    <adapter method="program" xCount="5" yCount="5" />
     <opcTransmitter destination="localhost" channel="0" />
 </settings>

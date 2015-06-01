@@ -42,6 +42,10 @@ public abstract class DMXOPCAdapter
                 return new StraightAdapter();
             case "gradient":
                 return new GradientAdapter();
+            case "program":
+                int xCount = Integer.parseInt(adapter.getAttributeValue("xCount"));
+                int yCount = Integer.parseInt(adapter.getAttributeValue("xCount"));
+                return new ProgramAdapter(xCount, yCount);
         }
     }
 }

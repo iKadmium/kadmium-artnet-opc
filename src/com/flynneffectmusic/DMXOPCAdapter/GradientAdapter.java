@@ -46,9 +46,7 @@ public class GradientAdapter extends DMXOPCAdapter
     @Override
     public Element serialize()
     {
-        Element adapterElement = new Element("adapterMethod");
-        adapterElement.setText("gradient");
-        return adapterElement;
+        return serialize("gradient");
     }
 
 }

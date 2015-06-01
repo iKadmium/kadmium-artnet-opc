@@ -1,7 +1,7 @@
-package com.flynneffectmusic.DMXOPCAdapter.programs;
+package com.flynneffectmusic.DMXOPCAdapter.programs.effects;
 
-import com.flynneffectmusic.DMXOPCAdapter.programs.Pixel;
-import com.flynneffectmusic.DMXOPCAdapter.programs.PixelFixture;
+import com.flynneffectmusic.DMXOPCAdapter.programs.*;
+import org.jdom2.Element;
 
 import java.util.ArrayList;
 import java.util.stream.IntStream;
@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 /**
  * Created by higginsonj on 3/12/2014.
  */
-public class PixelChase extends PixelEffect
+public class Chase extends PixelEffect
 {
     int nodes;
     float coverage;
@@ -18,7 +18,7 @@ public class PixelChase extends PixelEffect
 
     float chase = 0.0f;
 
-    public PixelChase(int nodes, float coverage)
+    private Chase(int nodes, float coverage)
     {
         this.nodes = nodes;
         this.coverage = coverage;
@@ -80,5 +80,12 @@ public class PixelChase extends PixelEffect
     public boolean IsActive()
     {
         return chase > 0.0f;
+    }
+
+    public static Chase deserialize(Element element)
+    {
+        int nodes = Integer.parseInt(element.getAttributeValue("nodes"));
+        float coverage = Float.parseFloat(element.getAttributeValue("coverage"));
+        return new Chase(nodes, coverage);
     }
 }
