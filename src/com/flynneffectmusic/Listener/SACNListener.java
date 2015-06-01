@@ -32,7 +32,7 @@ public class SACNListener extends DMXListener
 
             multicastKey = joinMulticastGroup(universe, listenAddress);
         }
-        catch (IOException e)
+        catch (IOException|IllegalArgumentException e)
         {
             e.printStackTrace();
         }
