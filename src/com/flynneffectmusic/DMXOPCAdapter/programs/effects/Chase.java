@@ -16,8 +16,6 @@ public class Chase extends PixelEffect
     Wave wave;
     Translate translate;
 
-    float chase = 0.0f;
-
     private Chase(int nodes, float coverage)
     {
         this.nodes = nodes;
@@ -58,28 +56,7 @@ public class Chase extends PixelEffect
             fixture.GetColumn(xValue).forEach(pixel -> pixel.SetBrightness(0));
         }
 
-        translate.Apply(fixture, chase);
-    }
-
-    @Override
-    public void Set(String attribute, float value)
-    {
-        if(attribute.equalsIgnoreCase("Chase"))
-        {
-            chase = value;
-        }
-    }
-
-    @Override
-    public boolean SolvesForAttribute(String attribute)
-    {
-        return attribute.equalsIgnoreCase("Chase");
-    }
-
-    @Override
-    public boolean IsActive()
-    {
-        return chase > 0.0f;
+        translate.Apply(fixture, offset);
     }
 
     public static Chase deserialize(Element element)

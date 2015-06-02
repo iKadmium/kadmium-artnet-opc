@@ -45,24 +45,6 @@ public class Mirror extends PixelEffect
 		}
 	}
 
-    @Override
-    public void Set(String attribute, float value)
-    {
-
-    }
-
-    @Override
-    public boolean SolvesForAttribute(String attribute)
-    {
-        return false;
-    }
-
-    @Override
-    public boolean IsActive()
-    {
-        return true;
-    }
-
     public static Mirror deserialize(Element element)
     {
         boolean horizontal = Boolean.parseBoolean(element.getAttributeValue("horizontal"));

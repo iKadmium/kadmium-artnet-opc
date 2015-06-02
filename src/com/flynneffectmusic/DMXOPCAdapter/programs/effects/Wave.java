@@ -23,8 +23,6 @@ public class Wave extends PixelEffect
 	boolean topToBottom;
 	float speedMultiplier;
 
-    float chase = 0.0f;
-	
 	public  Wave(AnimatablePropertyType propertyType, float pixelShiftDelta, boolean horizontal, boolean vertical, float speedMultiplier)
 	{
 		this.pixelShiftDelta = pixelShiftDelta;
@@ -77,27 +75,6 @@ public class Wave extends PixelEffect
 		}
 		
 	}
-
-    @Override
-    public void Set(String attribute, float value)
-    {
-        if(attribute.equalsIgnoreCase("Chase"))
-        {
-            chase = value;
-        }
-    }
-
-    @Override
-    public boolean SolvesForAttribute(String attribute)
-    {
-        return false;
-    }
-
-    @Override
-    public boolean IsActive()
-    {
-        return chase > 0.0f;
-    }
 
     public static Wave deserialize(Element element)
     {

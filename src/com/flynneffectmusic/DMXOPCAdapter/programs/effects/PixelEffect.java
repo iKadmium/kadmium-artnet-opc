@@ -6,9 +6,6 @@ import org.jdom2.Element;
 public abstract class PixelEffect
 {
 	public abstract void Apply(PixelFixture fixture, float offset);
-    public abstract void Set(String attribute, float value);
-    public abstract boolean SolvesForAttribute(String attribute);
-    public abstract boolean IsActive();
 
     public static PixelEffect deserialize(Element effectElement)
     {

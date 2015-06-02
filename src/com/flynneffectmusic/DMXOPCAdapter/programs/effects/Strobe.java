@@ -13,7 +13,6 @@ public class Strobe extends PixelEffect
     int fadeCounter = 1;
     boolean strobeOn = true;
 
-    float strobe = 0.0f;
 
     public Strobe(int fadeTime)
     {
@@ -34,27 +33,6 @@ public class Strobe extends PixelEffect
         {
             fixture.GetPixelMap().values().forEach(pixel -> pixel.SetBrightness(0));
         }
-    }
-
-    @Override
-    public void Set(String attribute, float value)
-    {
-        if(attribute.equalsIgnoreCase("Strobe"))
-        {
-            strobe = value;
-        }
-    }
-
-    @Override
-    public boolean SolvesForAttribute(String attribute)
-    {
-        return attribute.equalsIgnoreCase("Strobe");
-    }
-
-    @Override
-    public boolean IsActive()
-    {
-        return strobe > 0.0f;
     }
 
     public static Strobe deserialize(Element element)

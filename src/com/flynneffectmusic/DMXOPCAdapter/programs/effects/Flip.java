@@ -49,24 +49,6 @@ public class Flip extends PixelEffect
 		}
 	}
 
-    @Override
-    public void Set(String attribute, float value)
-    {
-
-    }
-
-    @Override
-    public boolean SolvesForAttribute(String attribute)
-    {
-        return false;
-    }
-
-    @Override
-    public boolean IsActive()
-    {
-        return true;
-    }
-
     public static Flip deserialize(Element element)
     {
         boolean horizontal = Boolean.parseBoolean(element.getAttributeValue("horizontal"));

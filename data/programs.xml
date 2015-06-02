@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="programs.xsd">
     <program>
-        <image src="cockAndBalls.png"/>
+        <hsb hue="0.0" saturation="1.0" brightness="1.0"/>
         <effects>
-            <mirror horizontal="true" vertical="true"/>
+            <shift property="hue" pixelShiftDelta="0.02222222222222222222222" horizontal="true" leftToRight="true" topToBottom="true"/>
+            <shift property="brightness" pixelShiftDelta="0.15" horizontal="false" leftToRight="false" topToBottom="true"/>
         </effects>
     </program>
 
@@ -15,6 +16,13 @@
     </program>
 
     <program>
+        <image src="cockAndBalls.png"/>
+        <effects>
+            <mirror horizontal="true" vertical="true"/>
+        </effects>
+    </program>
+
+    <program>
         <image src="arrowLeft.png"/>
         <effects>
             <translate horizontal="true" positive="true"/>
@@ -22,13 +30,7 @@
         </effects>
     </program>
 
-    <program>
-        <hsb hue="0.0" saturation="1.0" brightness="1.0"/>
-        <effects>
-            <shift property="hue" pixelShiftDelta="0.02222222222222222222222" horizontal="true" leftToRight="true" topToBottom="true"/>
-            <shift property="brightness" pixelShiftDelta="0.15" horizontal="false" leftToRight="false" topToBottom="true"/>
-        </effects>
-    </program>
+
 
     <program>
         <hsb hue="0.0" saturation="1.0" brightness="1.0"/>

@@ -3,6 +3,7 @@ package com.flynneffectmusic.DMXOPCAdapter.programs;
 import javafx.geometry.Point2D;
 import org.jdom2.Element;
 
+import java.nio.ByteBuffer;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -11,6 +12,8 @@ public class PixelFixture
     HashMap<Point2D, Pixel> pixels;
     int xCount;
     int yCount;
+
+    ByteBuffer buffer;
 
     public PixelFixture(int xCount, int yCount)
     {
@@ -27,14 +30,8 @@ public class PixelFixture
                 pixels.put(point, pixel);
             }
         }
-    }
 
-    public void UpdateDisplay()
-    {
-        for (Pixel pixel : pixels.values())
-        {
-            pixel.UpdateDisplay();
-        }
+        buffer = ByteBuffer.allocate(xCount * yCount * 3);
     }
 
     public HashMap<Point2D, Pixel> GetPixelMap()
@@ -160,16 +157,17 @@ public class PixelFixture
         return randomPixels.stream().limit(count).collect(Collectors.toList());
     }
 
-    public Collection<? extends Byte> GetRGBData()
+    public byte[] GetRGBData()
     {
-        ArrayList<Byte> bytes = new ArrayList<>();
+        buffer.clear();
+
         for (Pixel pixel : GetPixels(true, true, true))
         {
-            bytes.add((byte) pixel.GetRed());
-            bytes.add((byte) pixel.GetGreen());
-            bytes.add((byte) pixel.GetBlue());
+            buffer.put((byte) pixel.GetRed());
+            buffer.put((byte) pixel.GetGreen());
+            buffer.put((byte) pixel.GetBlue());
         }
 
-        return bytes;
+        return buffer.array();
     }
 }

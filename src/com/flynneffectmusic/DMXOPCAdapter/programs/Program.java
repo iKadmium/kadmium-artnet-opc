@@ -36,7 +36,7 @@ public class Program
             generator.Generate(fixture, offset);
         }
 
-        effects.stream().filter(PixelEffect::IsActive).forEach(effect -> effect.Apply(fixture, offset));
+        effects.stream().forEach(effect -> effect.Apply(fixture, offset));
     }
 
     public float getHue()
@@ -47,6 +47,7 @@ public class Program
     public void setHue(float hue)
     {
         this.hue = hue;
+        generator.SetHue(hue);
     }
 
     public float getSaturation()
@@ -57,6 +58,7 @@ public class Program
     public void setSaturation(float saturation)
     {
         this.saturation = saturation;
+        generator.SetSaturation(saturation);
     }
 
     public float getBrightness()
@@ -67,6 +69,7 @@ public class Program
     public void setBrightness(float brightness)
     {
         this.brightness = brightness;
+        generator.SetBrightness(brightness);
     }
 
     public static Program deserialize(PixelFixture fixture, Element programElement)

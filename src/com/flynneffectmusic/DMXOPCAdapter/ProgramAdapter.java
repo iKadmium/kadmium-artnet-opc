@@ -118,15 +118,16 @@ public class ProgramAdapter extends DMXOPCAdapter
     @Override
     public byte[] adaptDMX(byte[] dmx, int pixelCount)
     {
-        Color color = Color.rgb(dmx[0], dmx[1], dmx[2]);
-        Set("Hue", (float)color.getHue());
+        Color color = Color.rgb(dmx[0] & 0xFF, dmx[1] & 0xFF, dmx[2] & 0xFF);
+        Set("Hue", (float)color.getHue() / 360.0f);
         Set("Saturation", (float)color.getSaturation());
         Set("Brightness", (float)color.getBrightness());
         Set("Offset", (float)dmx[3] / 256.0f);
 
         Solve();
-        byte[] pixelData = new byte[pixelCount];
-        System.arraycopy(fixture.GetRGBData().toArray(), 0, pixelData, 0, pixelCount);
+        byte[] pixelData = new byte[pixelCount * 3];
+        byte[] sourceData = fixture.GetRGBData();
+        System.arraycopy(sourceData, 0, pixelData, 0, pixelCount * 3);
         return pixelData;
     }
 }

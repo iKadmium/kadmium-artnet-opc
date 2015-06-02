@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="settings.xsd">
-    <dmxAddress>1</dmxAddress>
+    <dmxAddress>460</dmxAddress>
     <httpServerPort>6789</httpServerPort>
-    <listener type="sacn" universe="1" listenAddress="10.1.1.1"/>
-    <pixelCount>64</pixelCount>
-    <adapter method="program" xCount="5" yCount="5" />
+    <listener type="sacn" universe="1" listenAddress="127.0.0.1"/>
+    <pixelCount>53</pixelCount>
+    <adapter method="program" xCount="53" yCount="1" />
     <opcTransmitter destination="localhost" channel="0" />
 </settings>

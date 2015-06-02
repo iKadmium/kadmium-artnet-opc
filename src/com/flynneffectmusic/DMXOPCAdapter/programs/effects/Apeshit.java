@@ -18,8 +18,6 @@ public class Apeshit
     Collection<? extends Pixel> currentPixels;
     float coverage;
 
-    float apeshit = 0.0f;
-
     private Apeshit(int fadeTime, float coverage)
     {
         this.fadeTime = fadeTime;
@@ -33,7 +31,7 @@ public class Apeshit
         countdown--;
         if(countdown <= 0)
         {
-            countdown = Math.round(PixelMath.Clamp(fadeTime / apeshit, 0, 10f));
+            countdown = Math.round(PixelMath.Clamp(fadeTime / offset, 0, 10f));
             int pixelCount = (int)Math.floor((double)((1 - coverage) * fixture.GetPixelMap().size()));
             currentPixels = fixture.GetRandom(pixelCount);
         }
@@ -42,29 +40,6 @@ public class Apeshit
         {
             pixel.SetBrightness(0);
         }
-    }
-
-    @Override
-    public void Set(String attribute, float value)
-    {
-        switch(attribute)
-        {
-            case "Apeshit":
-                apeshit = value;
-                break;
-        }
-    }
-
-    @Override
-    public boolean SolvesForAttribute(String attribute)
-    {
-        return attribute.equalsIgnoreCase("Apeshit");
-    }
-
-    @Override
-    public boolean IsActive()
-    {
-        return apeshit > 0.0f;
     }
 
     public static Apeshit deserialize(Element element)

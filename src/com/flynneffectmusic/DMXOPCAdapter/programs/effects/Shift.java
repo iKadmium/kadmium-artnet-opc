@@ -16,8 +16,6 @@ public class Shift extends PixelEffect
 	boolean leftToRight; 
 	boolean topToBottom;
 
-    float chase;
-	
 	public Shift(AnimatablePropertyType propertyType, float pixelShiftDelta, boolean horizontal, boolean leftToRight, boolean topToBottom)
 	{
 		this.pixelShiftDelta = pixelShiftDelta;
@@ -55,27 +53,6 @@ public class Shift extends PixelEffect
     		currentValue += pixelShiftDelta;
 		}
 	}
-
-    @Override
-    public void Set(String attribute, float value)
-    {
-        if(attribute.equalsIgnoreCase("Chase"))
-        {
-            chase = value;
-        }
-    }
-
-    @Override
-    public boolean SolvesForAttribute(String attribute)
-    {
-        return attribute.equalsIgnoreCase("Chase");
-    }
-
-    @Override
-    public boolean IsActive()
-    {
-        return chase > 0.0f;
-    }
 
     public static Shift deserialize(Element element)
     {

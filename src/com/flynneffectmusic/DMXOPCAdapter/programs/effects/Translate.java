@@ -13,8 +13,6 @@ public class Translate extends PixelEffect
 	boolean horizontal;
 	boolean positiveTranslate;
 
-    float chase = 0.0f;
-	
 	public Translate(boolean horizontal, boolean positiveTranslate)
 	{
 		this.horizontal = horizontal;
@@ -65,27 +63,6 @@ public class Translate extends PixelEffect
 			}
 		}
 	}
-
-    @Override
-    public void Set(String attribute, float value)
-    {
-        if(attribute.equalsIgnoreCase("Chase"))
-        {
-            chase = value;
-        }
-    }
-
-    @Override
-    public boolean SolvesForAttribute(String attribute)
-    {
-        return attribute.equalsIgnoreCase("Chase");
-    }
-
-    @Override
-    public boolean IsActive()
-    {
-        return chase > 0.0f;
-    }
 
     public static Translate deserialize(Element element)
     {
