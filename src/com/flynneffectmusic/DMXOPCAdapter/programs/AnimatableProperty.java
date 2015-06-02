@@ -19,7 +19,7 @@ public class AnimatableProperty
 
     public void Set(float value)
     {
-        setter.accept(value);
+        setter.accept(value * getter.get());
     }
 
     public float Get()

@@ -18,17 +18,17 @@ public abstract class DMXListener
     protected short universe;
     protected DatagramChannel channel;
 
-    public String getListenAddress()
+    public String getListenAdapter()
     {
-        return listenAddress;
+        return listenAdapter;
     }
 
-    public void setListenAddress(String listenAddress)
+    public void setListenAdapter(String listenAddress)
     {
-        this.listenAddress = listenAddress;
+        this.listenAdapter = listenAddress;
     }
 
-    String listenAddress;
+    String listenAdapter;
 
     protected ByteBuffer buffer;
 
@@ -88,13 +88,13 @@ public abstract class DMXListener
 
     public static DMXListener deserialize(Element element)
     {
-        String address = element.getAttributeValue("listenAddress");
+        String adapter = element.getAttributeValue("listenAdapter");
         short universe = Short.parseShort(element.getAttributeValue("universe") );
         switch(element.getAttributeValue("type"))
         {
             default:
             case "sacn":
-                return new SACNListener(universe, address);
+                return new SACNListener(universe, adapter);
             case "artnet":
                 return new ArtNetListener(universe);
         }

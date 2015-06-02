@@ -8,22 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4a71a01-3a37-49a0-b8cc-18def76aa0df" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\User\IntelliJ Workspace\kadmium-artnet-opc\src\com\flynneffectmusic\DMXOPCAdapter\programs\PixelSolver.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Apeshit.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Apeshit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Chase.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Chase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/DMXOPCAdapter.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/DMXOPCAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Flip.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Flip.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Mirror.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Mirror.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/PixelEffect.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/PixelEffect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/PixelFixture.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/PixelFixture.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/Program.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/Program.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/ProgramAdapter.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/ProgramAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Shift.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Shift.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Strobe.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Strobe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Translate.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Translate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Wave.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Wave.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/AnimatableProperty.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/AnimatableProperty.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/Listener/DMXListener.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/Listener/DMXListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/Listener/SACNListener.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/Listener/SACNListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/flynneffectmusic/WebServer.java" afterPath="$PROJECT_DIR$/src/com/flynneffectmusic/WebServer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/programs.xml" afterPath="$PROJECT_DIR$/data/programs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/settings.xml" afterPath="$PROJECT_DIR$/data/settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/settings.xsd" afterPath="$PROJECT_DIR$/data/settings.xsd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ArtNetToOPC.iws" />
@@ -53,64 +44,66 @@
         <entry file="file://$PROJECT_DIR$/data/settings.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+              <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="programs.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/programs.xml">
+      <file leaf-file-name="Wave.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Wave.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48295453" vertical-offset="0" max-vertical-offset="705">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="552" max-vertical-offset="1485">
+              <caret line="73" column="45" selection-start-line="73" selection-start-column="45" selection-end-line="73" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProgramAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/ProgramAdapter.java">
+      <file leaf-file-name="AnimatableProperty.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/AnimatableProperty.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="445" max-vertical-offset="2040">
-              <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.42613637" vertical-offset="0" max-vertical-offset="528">
+              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#454#455#0" expanded="true" />
+                <element signature="e#505#506#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/Main.java">
+      <file leaf-file-name="SACNListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/Listener/SACNListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="364" max-vertical-offset="960">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="94" max-vertical-offset="2265">
+              <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DMXOPCAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/DMXOPCAdapter.java">
+      <file leaf-file-name="DMXListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/Listener/DMXListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="33" max-vertical-offset="930">
-              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="1485">
+              <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#467#468#0" expanded="true" />
+                <element signature="e#503#504#0" expanded="true" />
+                <element signature="e#565#566#0" expanded="true" />
+                <element signature="e#615#616#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PixelFixture.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/PixelFixture.java">
+      <file leaf-file-name="WebServer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/WebServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="2550">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="2569" max-vertical-offset="3240">
+              <caret line="206" column="89" selection-start-line="206" selection-start-column="89" selection-end-line="206" selection-end-column="89" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -123,8 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/flynneffectmusic/PixelFixture.java" />
-        <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/pixels/PixelChase.java" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/pixels/AnimatableProperty.java" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/pixels/AnimatablePropertyType.java" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/pixels/Flip.java" />
@@ -141,8 +132,6 @@
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/pixels/Wave.java" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/Pixel.java" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/PixelEffect.java" />
-        <option value="$PROJECT_DIR$/src/com/flynneffectmusic/Listener/SACNListener.java" />
-        <option value="$PROJECT_DIR$/src/com/flynneffectmusic/WebServer.java" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/Settings.java" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/Main.java" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/PixelSolver.java" />
@@ -155,7 +144,6 @@
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/Strobe.java" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/GradientAdapter.java" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/generators/PixelGenerator.java" />
-        <option value="$PROJECT_DIR$/data/settings.xsd" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/generators/ImageGenerator.java" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/generators/HSBGenerator.java" />
         <option value="$PROJECT_DIR$/data/programs.xsd" />
@@ -171,9 +159,14 @@
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Shift.java" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/PixelFixture.java" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/ProgramAdapter.java" />
-        <option value="$PROJECT_DIR$/data/settings.xml" />
         <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/DMXOPCAdapter.java" />
         <option value="$PROJECT_DIR$/data/programs.xml" />
+        <option value="$PROJECT_DIR$/data/settings.xsd" />
+        <option value="$PROJECT_DIR$/src/com/flynneffectmusic/Listener/DMXListener.java" />
+        <option value="$PROJECT_DIR$/src/com/flynneffectmusic/WebServer.java" />
+        <option value="$PROJECT_DIR$/src/com/flynneffectmusic/Listener/SACNListener.java" />
+        <option value="$PROJECT_DIR$/data/settings.xml" />
+        <option value="$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/AnimatableProperty.java" />
       </list>
     </option>
   </component>
@@ -254,6 +247,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="flynneffectmusic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kadmium-artnet-opc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kadmium-artnet-opc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flynneffectmusic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Listener" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -624,7 +639,13 @@
       <option name="project" value="LOCAL" />
       <updated>1433138649959</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Program mode sort of works now">
+      <created>1433212430742</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1433212430742</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -705,11 +726,12 @@
     <MESSAGE value="Added XSD Validation for settings file" />
     <MESSAGE value="Refactored settings and web server functions, added Pixel program stuff (not in use yet)" />
     <MESSAGE value="Added pixel program support" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added pixel program support" />
+    <MESSAGE value="Program mode sort of works now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Program mode sort of works now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="94" />
+      <option name="time" value="104" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -722,16 +744,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/ProgramAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1497" max-vertical-offset="2025">
-          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/settings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -758,20 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/Listener/SACNPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5155902" vertical-offset="0" max-vertical-offset="0">
-          <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/jdom-2.0.4.jar!/org/jdom2/Element.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.68" vertical-offset="0" max-vertical-offset="0">
-          <caret line="572" column="25" selection-start-line="572" selection-start-column="25" selection-end-line="572" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -810,38 +808,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/Listener/SACNListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0170455" vertical-offset="777" max-vertical-offset="1575">
-          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/WebServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2865106" vertical-offset="283" max-vertical-offset="3450">
-          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/Listener/DMXListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.036789298" vertical-offset="438" max-vertical-offset="1335">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/CopyAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2173913" vertical-offset="0" max-vertical-offset="897">
           <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/AnimatableProperty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -880,14 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/settings.xsd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42613637" vertical-offset="0" max-vertical-offset="675">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/jdom-2.0.4.jar!/org/jdom2/input/sax/SAXBuilderEngine.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.87077534" vertical-offset="1077" max-vertical-offset="1605">
@@ -914,13 +876,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34174758" vertical-offset="229" max-vertical-offset="1020">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/OPCTransmitter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.11363637" vertical-offset="765" max-vertical-offset="1320">
-          <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -977,14 +932,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
           <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Wave.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1485">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -1061,10 +1008,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/PixelFixture.java">
+    <entry file="file://$PROJECT_DIR$/data/programs.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="2550">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8806818" vertical-offset="0" max-vertical-offset="675">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/ProgramAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1262136" vertical-offset="445" max-vertical-offset="2040">
+          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1073,25 +1028,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="364" max-vertical-offset="960">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="364" max-vertical-offset="960">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/ProgramAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="445" max-vertical-offset="2040">
-          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/DMXOPCAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="33" max-vertical-offset="930">
+        <state vertical-scroll-proportion="0.44886363" vertical-offset="33" max-vertical-offset="930">
           <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1099,19 +1044,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/settings.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/PixelFixture.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="109" max-vertical-offset="2550">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Tools/Java/jdk1.8.0_45/jre/lib/rt.jar!/sun/nio/ch/Net.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.04" vertical-offset="6064" max-vertical-offset="6870">
+          <caret line="457" column="0" selection-start-line="457" selection-start-column="0" selection-end-line="457" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/programs.xml">
+    <entry file="file://$PROJECT_DIR$/data/settings.xsd">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48295453" vertical-offset="0" max-vertical-offset="705">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.13377926" vertical-offset="0" max-vertical-offset="897">
+          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/OPCTransmitter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31438127" vertical-offset="423" max-vertical-offset="1320">
+          <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/jdom-2.0.4.jar!/org/jdom2/Element.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.87077534" vertical-offset="11412" max-vertical-offset="11940">
+          <caret line="882" column="0" selection-start-line="882" selection-start-column="0" selection-end-line="882" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/Listener/DMXListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="1485">
+          <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+          <folding>
+            <element signature="e#467#468#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#615#616#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/WebServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2569" max-vertical-offset="3240">
+          <caret line="206" column="89" selection-start-line="206" selection-start-column="89" selection-end-line="206" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/Listener/SACNPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.875" vertical-offset="48" max-vertical-offset="945">
+          <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/Listener/SACNListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="94" max-vertical-offset="2265">
+          <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/effects/Wave.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="552" max-vertical-offset="1485">
+          <caret line="73" column="45" selection-start-line="73" selection-start-column="45" selection-end-line="73" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/flynneffectmusic/DMXOPCAdapter/programs/AnimatableProperty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42613637" vertical-offset="0" max-vertical-offset="528">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+          <folding>
+            <element signature="e#454#455#0" expanded="true" />
+            <element signature="e#505#506#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

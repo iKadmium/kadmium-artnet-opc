@@ -71,8 +71,8 @@ public class WebServer
             getInputTextSet("OPC Channel", "opcChannel", Main.transmitter.getChannel() + "")
         );
 
-        Element listenAddress = new Element("select");
-        listenAddress.setAttribute("id", "listenAddress");
+        Element listenAdapter = new Element("select");
+        listenAdapter.setAttribute("id", "listenAdapter");
         try
         {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces()))
@@ -82,12 +82,12 @@ public class WebServer
                     if (inetAddress instanceof Inet4Address)
                     {
                         Element addressOption = new Element("option");
-                        addressOption.setAttribute("value", inetAddress.getHostAddress() + "");
+                        addressOption.setAttribute("value", networkInterface.getName() + "");
                         addressOption.setText(
                             networkInterface.getDisplayName() + " -> " + inetAddress.getHostAddress()
                         );
-                        listenAddress.addContent(addressOption);
-                        if (Main.listener.getListenAddress().equals(inetAddress.getHostAddress()))
+                        listenAdapter.addContent(addressOption);
+                        if (Main.listener.getListenAdapter().equals(networkInterface.getName()))
                         {
                             addressOption.setAttribute("selected", "selected");
                         }
@@ -102,7 +102,7 @@ public class WebServer
 
         fieldset.getChildren().addAll(
             getInputElementSet(
-                listenAddress, "DMX Listen Address", "listenAddress", Main.listener.getListenAddress()
+                listenAdapter, "DMX Listen Adapter", "listenAdapter", Main.listener.getListenAdapter()
             )
         );
 
@@ -204,7 +204,7 @@ public class WebServer
                     }
                     Settings.setPixelCount(Integer.parseInt(request.getParams().get("pixelCount")));
                     Main.transmitter.setChannel(Integer.parseInt(request.getParams().get("opcChannel")));
-                    Main.listener.setListenAddress(request.getParams().get("listenAddress"));
+                    Main.listener.setListenAdapter(request.getParams().get("listenAdapter"));
 
                     Settings.save();
 

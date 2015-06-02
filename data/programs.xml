@@ -30,8 +30,6 @@
         </effects>
     </program>
 
-
-
     <program>
         <hsb hue="0.0" saturation="1.0" brightness="1.0"/>
         <effects>

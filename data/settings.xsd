@@ -6,7 +6,7 @@
         <xsd:sequence/>
         <xsd:attribute name="type" type="xsd:string"/>
         <xsd:attribute name="universe" type="xsd:unsignedShort"/>
-        <xsd:attribute name="listenAddress" type="xsd:string"/>
+        <xsd:attribute name="listenAdapter" type="xsd:string"/>
     </xsd:complexType>
 
     <xsd:complexType name="adapter">
