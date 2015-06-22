@@ -29,7 +29,7 @@ public class Strobe extends PixelEffect
             fadeCounter = fadeTime;
         }
 
-        if(!strobeOn)
+        if(!strobeOn && offset > 0.0f)
         {
             fixture.GetPixelMap().values().forEach(pixel -> pixel.SetBrightness(0));
         }
@@ -37,7 +37,7 @@ public class Strobe extends PixelEffect
 
     public static Strobe deserialize(Element element)
     {
-        int fadeTime = Integer.parseInt(element.getAttributeValue("fadeTime"));
+        int fadeTime = Integer.parseInt(element.getAttributeValue("fadetime"));
         return new Strobe(fadeTime);
     }
 }
