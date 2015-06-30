@@ -2,8 +2,8 @@ package com.flynneffectmusic.DMXOPCAdapter;
 
 
 import com.flynneffectmusic.DMXOPCAdapter.programs.*;
+import com.flynneffectmusic.DMXOPCAdapter.programs.effects.Apeshit;
 import com.flynneffectmusic.DMXOPCAdapter.programs.effects.Strobe;
-import com.flynneffectmusic.Main;
 import javafx.scene.paint.Color;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -22,11 +22,13 @@ public class ProgramAdapter extends DMXOPCAdapter
     float offset = 0.0f;
     float animationDelta = 0.02f;
     float strobe = 0.0f;
+    float apeshit = 0.0f;
     PixelFixture fixture;
 
     ArrayList<Program> programs;
 
     Strobe strobeEffect;
+    Apeshit apeshitEffect;
     Program activeProgram;
 
     private boolean demoMode = false;
@@ -38,6 +40,7 @@ public class ProgramAdapter extends DMXOPCAdapter
         programs = LoadPrograms();
         activeProgram = programs.get(0);
         strobeEffect = new Strobe(1);
+        apeshitEffect = new Apeshit(1, 1);
     }
 
     private ArrayList<Program> LoadPrograms()
@@ -77,6 +80,7 @@ public class ProgramAdapter extends DMXOPCAdapter
 
         activeProgram.Solve(offset);
         strobeEffect.Apply(fixture, strobe);
+        apeshitEffect.Apply(fixture, apeshit);
     }
 
     public void Set(String attributeName, float value)
@@ -98,6 +102,9 @@ public class ProgramAdapter extends DMXOPCAdapter
                 break;
             case "Strobe":
                 this.strobe = value;
+                break;
+            case "Apeshit":
+                this.apeshit = value;
                 break;
             case "Program":
                 float activeNumber = value * (programs.size() - 1);
@@ -121,7 +128,7 @@ public class ProgramAdapter extends DMXOPCAdapter
     @Override
     public int getDMXLength(int pixelCount)
     {
-        return 6; //red, green, blue, strobe, offset, program
+        return 7; //red, green, blue, strobe, offset, program
     }
 
     @Override
@@ -133,8 +140,9 @@ public class ProgramAdapter extends DMXOPCAdapter
         Set("Saturation", (float)color.getSaturation());
         Set("Brightness", (float)color.getBrightness());
         Set("Strobe", getValue(dmx[3]));
-        Set("Offset", getValue(dmx[4]));
-        Set("Program", getValue(dmx[5]));
+        Set("Apeshit", getValue(dmx[4]));
+        Set("Offset", getValue(dmx[5]));
+        Set("Program", getValue(dmx[6]));
 
         Solve();
         byte[] pixelData = new byte[pixelCount * 3];

@@ -16,9 +16,9 @@ public class Apeshit
     int fadeTime;
     int countdown;
     Collection<? extends Pixel> currentPixels;
-    float coverage;
+    int coverage;
 
-    private Apeshit(int fadeTime, float coverage)
+    public Apeshit(int fadeTime, int coverage)
     {
         this.fadeTime = fadeTime;
         countdown = 1;
@@ -28,17 +28,19 @@ public class Apeshit
     @Override
     public void Apply(PixelFixture fixture, float offset)
     {
-        countdown--;
-        if(countdown <= 0)
+        if(offset > 0.0f)
         {
-            countdown = Math.round(PixelMath.Clamp(fadeTime / offset, 0, 10f));
-            int pixelCount = (int)Math.floor((double)((1 - coverage) * fixture.GetPixelMap().size()));
-            currentPixels = fixture.GetRandom(pixelCount);
-        }
+            countdown--;
+            if (countdown <= 0)
+            {
+                countdown = Math.round(PixelMath.Clamp(fadeTime / offset, 0, 10f));
+                currentPixels = fixture.GetRandom((fixture.GetXDimensions() * fixture.GetYDimensions()) - coverage);
+            }
 
-        for(Pixel pixel : currentPixels)
-        {
-            pixel.SetBrightness(0);
+            for (Pixel pixel : currentPixels)
+            {
+                pixel.SetBrightness(0);
+            }
         }
     }
 

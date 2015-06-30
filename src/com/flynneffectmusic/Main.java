@@ -7,10 +7,14 @@ import java.util.*;
 
 public class Main
 {
+    static int FRAME_RATE = 60;
+    static int RENDER_DELAY_MS = 1000 / FRAME_RATE;
+
     static String settingsFile = "settings.xml";
     static int updatesPerSecond = 0;
 
-    static Timer timer;
+    static Timer outputTimer;
+    static Timer renderTimer;
 
     static DMXOPCAdapter adapter;
     static DMXListener listener;
@@ -18,14 +22,14 @@ public class Main
 
     static WebServer webServer;
 
+    static byte[] dmx;
+    static byte[] pixelData;
+
     public static void main(String[] args)
     {
         Settings.load();
 
         webServer = new WebServer(Settings.getWebServerPort());
-
-        byte[] dmx;
-        byte[] pixelData;
 
         setupTimer();
 
@@ -35,16 +39,13 @@ public class Main
             {
                 updatesPerSecond++;
                 dmx = listener.getDMX(Settings.getDmxAddress() - 1, adapter.getDMXLength(Settings.getPixelCount()));
-                pixelData = adapter.adaptDMX(dmx, Settings.getPixelCount());
-
-                transmitter.SendPixels(pixelData);
             }
         }
     }
 
     public static void setupTimer()
     {
-        TimerTask task = new TimerTask()
+        TimerTask outputTask = new TimerTask()
         {
             @Override
             public void run()
@@ -54,8 +55,21 @@ public class Main
             }
         };
 
-        timer = new Timer("Update output timer", true);
-        timer.scheduleAtFixedRate(task, 1000, 1000);
+        outputTimer = new Timer("Update output timer", true);
+        outputTimer.scheduleAtFixedRate(outputTask, 1000, 1000);
+
+        TimerTask renderTask = new TimerTask()
+        {
+            @Override
+            public void run()
+            {
+                pixelData = adapter.adaptDMX(dmx, Settings.getPixelCount());
+                transmitter.SendPixels(pixelData);
+            }
+        };
+
+        renderTimer = new Timer("Render", true);
+        renderTimer.scheduleAtFixedRate(renderTask, RENDER_DELAY_MS, RENDER_DELAY_MS);
     }
 
 }
