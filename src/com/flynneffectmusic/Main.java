@@ -32,6 +32,7 @@ public class Main
         webServer = new WebServer(Settings.getWebServerPort());
 
         setupTimer();
+        dmx = new byte[512];
 
         while (true)
         {

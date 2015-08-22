@@ -30,6 +30,7 @@
             <xsd:element name="pixelCount" type="xsd:unsignedShort"/>
             <xsd:element name="adapter" type="adapter"/>
             <xsd:element name="opcTransmitter" type="opcTransmitter"/>
+            <xsd:element name="startupWait" type="xsd:int"/>
         </xsd:choice>
     </xsd:complexType>
 

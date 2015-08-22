@@ -4,6 +4,7 @@ package com.flynneffectmusic.DMXOPCAdapter;
 import com.flynneffectmusic.DMXOPCAdapter.programs.*;
 import com.flynneffectmusic.DMXOPCAdapter.programs.effects.Apeshit;
 import com.flynneffectmusic.DMXOPCAdapter.programs.effects.Strobe;
+import com.sun.istack.internal.NotNull;
 import javafx.scene.paint.Color;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -132,7 +133,7 @@ public class ProgramAdapter extends DMXOPCAdapter
     }
 
     @Override
-    public byte[] adaptDMX(byte[] dmx, int pixelCount)
+    public byte[] adaptDMX(@NotNull byte[] dmx, int pixelCount)
     {
         Color color = Color.rgb(dmx[0] & 0xFF, dmx[1] & 0xFF, dmx[2] & 0xFF);
 

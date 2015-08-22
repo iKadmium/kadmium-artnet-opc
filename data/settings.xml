@@ -6,4 +6,5 @@
     <pixelCount>53</pixelCount>
     <adapter method="program" xCount="53" yCount="1" />
     <opcTransmitter destination="localhost" channel="0" />
+    <startupWait>10</startupWait>
 </settings>

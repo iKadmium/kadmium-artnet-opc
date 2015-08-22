@@ -64,7 +64,10 @@ public class Settings
             Document settingsDoc = builder.build(Main.settingsFile);
             Element rootElement = settingsDoc.getRootElement();
 
-            setDmxAddress(Short.parseShort(rootElement.getChild("dmxAddress").getValue()));
+			int startupWait = Integer.parseInt(rootElement.getChild("startupWait").getValue());
+			System.out.println("waiting for " + startupWait + "s as specified...");
+			Thread.sleep(startupWait * 1000);
+			setDmxAddress(Short.parseShort(rootElement.getChild("dmxAddress").getValue()));
             setPixelCount(Integer.parseInt(rootElement.getChild("pixelCount").getValue()));
             Main.transmitter = OPCTransmitter.deserialize(rootElement.getChild("opcTransmitter"));
             Main.adapter = DMXOPCAdapter.deserialize(rootElement.getChild("adapter"));
@@ -72,11 +75,11 @@ public class Settings
             setWebServerPort(Short.parseShort((rootElement.getChild("httpServerPort").getValue())));
 
         }
-        catch (JDOMException | IOException e)
+        catch (JDOMException | IOException | InterruptedException e)
         {
             e.printStackTrace();
         }
-    }
+	}
 
     public static short getDmxAddress()
     {
