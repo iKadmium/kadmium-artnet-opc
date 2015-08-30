@@ -9,9 +9,12 @@ public class Main
 {
     static int FRAME_RATE = 60;
     static int RENDER_DELAY_MS = 1000 / FRAME_RATE;
+    static int SECONDS_UNTIL_RELOAD = 15;
 
     static String settingsFile = "settings.xml";
     static int updatesPerSecond = 0;
+    static int secondsSinceLastUpdate = 0;
+
 
     static Timer outputTimer;
     static Timer renderTimer;
@@ -39,6 +42,7 @@ public class Main
             if (listener.read())
             {
                 updatesPerSecond++;
+				secondsSinceLastUpdate = 0;
                 dmx = listener.getDMX(Settings.getDmxAddress() - 1, adapter.getDMXLength(Settings.getPixelCount()));
             }
         }
@@ -53,6 +57,12 @@ public class Main
             {
                 System.out.println("Updates per second: " + updatesPerSecond);
                 updatesPerSecond = 0;
+                secondsSinceLastUpdate++;
+                if(secondsSinceLastUpdate >= SECONDS_UNTIL_RELOAD)
+                {
+					listener.reload();
+					secondsSinceLastUpdate = 0;
+                }
             }
         };
 

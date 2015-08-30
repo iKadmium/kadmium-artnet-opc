@@ -101,4 +101,6 @@ public abstract class DMXListener
     }
 
     public abstract Element serialize();
+
+    public abstract void reload();
 }

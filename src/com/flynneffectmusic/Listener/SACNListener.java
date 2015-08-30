@@ -41,6 +41,11 @@ public class SACNListener extends DMXListener
         }
     }
 
+    public void reload()
+    {
+        rejoinMulticastGroup(universe, listenAdapter);
+    }
+
     private MembershipKey joinMulticastGroup(short universe, String listenAdapter) throws IOException
     {
         NetworkInterface networkInterface = null;
@@ -82,7 +87,7 @@ public class SACNListener extends DMXListener
         return element;
     }
 
-    private void rejoinMulticastGroup(short universe, String listenAddress)
+    private void rejoinMulticastGroup(short universe, String listenAdapter)
     {
         if(multicastKey != null)
         {
@@ -90,7 +95,7 @@ public class SACNListener extends DMXListener
         }
         try
         {
-            multicastKey = joinMulticastGroup(universe, listenAddress);
+            multicastKey = joinMulticastGroup(universe, listenAdapter);
         }
         catch (IOException e)
         {

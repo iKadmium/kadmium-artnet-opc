@@ -5,6 +5,7 @@ import org.jdom2.Element;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.net.SocketException;
 import java.nio.channels.DatagramChannel;
 
 /**
@@ -40,6 +41,20 @@ public class ArtNetListener extends DMXListener
         element.setAttribute("type", "artnet");
         element.setAttribute("universe", universe + "");
         return element;
+    }
+
+    public void reload()
+    {
+        channel.socket().close();
+        try
+        {
+            channel = DatagramChannel.open();
+            channel.socket().bind(new InetSocketAddress(ARTNET_PORT));
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
 }
