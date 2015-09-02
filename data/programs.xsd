@@ -24,6 +24,7 @@
             <xsd:element name="strobe" type="strobe"/>
             <xsd:element name="translate" type="translate"/>
             <xsd:element name="wave" type="wave"/>
+            <xsd:element name="progressBar" type="progressBar"/>
         </xsd:choice>
     </xsd:complexType>
 
@@ -101,6 +102,12 @@
     <xsd:complexType name="image">
         <xsd:sequence/>
         <xsd:attribute name="src" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="progressBar">
+        <xsd:sequence/>
+        <xsd:attribute name="property" type="propertyType" use="required"/>
+        <xsd:attribute name="sections" type="xsd:nonNegativeInteger" use="optional" default="0"/>
     </xsd:complexType>
 
     <xsd:simpleType name="normalizedFloat" xml:base="xsd:float">

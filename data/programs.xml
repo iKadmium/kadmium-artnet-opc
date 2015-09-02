@@ -27,4 +27,5 @@
             <shift property="brightness" pixelShiftDelta="0.15" horizontal="false" leftToRight="false" topToBottom="true" cutoffMin="0.95" cutoffMax="1.0" />
         </effects>
     </program>
+
 </programs>

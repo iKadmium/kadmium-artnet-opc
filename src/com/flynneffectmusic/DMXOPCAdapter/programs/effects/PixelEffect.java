@@ -27,6 +27,8 @@ public abstract class PixelEffect
                 return Translate.deserialize(effectElement);
             case "wave":
                 return Wave.deserialize(effectElement);
+            case "progressBar":
+                return ProgressBar.deserialize(effectElement);
             default:
                 return null;
         }
