@@ -46,7 +46,26 @@ public class SACNListener extends DMXListener
         rejoinMulticastGroup(universe, listenAdapter);
     }
 
-    private MembershipKey joinMulticastGroup(short universe, String listenAdapter) throws IOException
+	@Override
+	public void close()
+	{
+		try
+		{
+			channel.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public String getTypeString()
+	{
+		return null;
+	}
+
+	private MembershipKey joinMulticastGroup(short universe, String listenAdapter) throws IOException
     {
         NetworkInterface networkInterface = null;
         if(listenAdapter.equals("auto"))

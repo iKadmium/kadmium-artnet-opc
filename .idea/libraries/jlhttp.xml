@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="jlhttp">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/jlhttp.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

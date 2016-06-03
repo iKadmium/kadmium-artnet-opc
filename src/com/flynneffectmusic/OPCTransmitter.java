@@ -5,7 +5,7 @@ import org.jdom2.Element;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-public class OPCTransmitter
+public class OPCTransmitter implements PixelRenderTarget
 {
 	final static boolean SET_LENGTH_BYTES = false;
 	
@@ -38,9 +38,9 @@ public class OPCTransmitter
 		return address.getHost();
 	}
 
-	public void SendPixels(byte[] data)
+	public void render(byte[] data)
 	{
-        if(!client.IsConnecting() && (client == null || !client.isOpen()))
+        if(!client.IsConnecting() && (client == null || !client.getConnection().isOpen()))
         {
             client = new OPCClient(address, this);
         }
@@ -57,9 +57,9 @@ public class OPCTransmitter
             newData[3] = SET_LENGTH_BYTES ? lengthLo : 0;
 
             System.arraycopy(data, 0, newData, 4, data.length);
-            if (client.isOpen())
+            if (client.getConnection().isOpen())
             {
-                if (!client.hasBufferedData())
+                if (!client.getConnection().hasBufferedData())
                 {
                     client.send(newData);
                 }

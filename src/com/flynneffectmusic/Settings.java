@@ -16,11 +16,22 @@ import java.io.IOException;
  */
 public class Settings
 {
-    private static short dmxAddress = 1;
-    private static int pixelCount = 0;
-    private static int webServerPort;
+    private short dmxAddress;
+	private int pixelsX;
+	private int pixelsY;
+    private int webServerPort;
+	private int startupWait;
 
-    public static void save()
+	public Settings()
+	{
+		this.dmxAddress = 1;
+		this.pixelsX = 1;
+		this.pixelsY = 1;
+		this.webServerPort = 8080;
+		this.startupWait = 0;
+	}
+
+    public void save()
     {
         Element rootElement = new Element("settings");
         Document settingsDoc = new Document(rootElement);
@@ -35,13 +46,14 @@ public class Settings
             )
         );
 
-        rootElement.getChildren().add(WebServer.createElement("dmxAddress", getDmxAddress() + ""));
-        rootElement.getChildren().add(WebServer.createElement("httpServerPort", getWebServerPort() + ""));
-        rootElement.getChildren().add(Main.listener.serialize());
-        rootElement.getChildren().add(WebServer.createElement("pixelCount", getPixelCount() + ""));
-        rootElement.getChildren().add(Main.adapter.serialize());
-        rootElement.getChildren().add(Main.transmitter.serialize());
-
+        rootElement.addContent(new Element("dmxAddress").addContent(getDmxAddress() + ""));
+        rootElement.addContent(new Element("httpServerPort").addContent(getWebServerPort() + ""));
+        rootElement.addContent(Main.getInstance().getListener().serialize());
+        rootElement.addContent(new Element("pixelsX").addContent(getPixelsX() + ""));
+		rootElement.addContent(new Element("pixelsY").addContent(getPixelsY() + ""));
+        rootElement.addContent(Main.getInstance().getAdapter().serialize());
+        rootElement.addContent(Main.getInstance().getTransmitter().serialize());
+		rootElement.addContent(new Element("startupWait").addContent(startupWait + ""));
 
         XMLOutputter xmlOutputter = new XMLOutputter(Format.getPrettyFormat());
         try
@@ -56,7 +68,7 @@ public class Settings
 
     }
 
-    public static void load()
+    public void load()
     {
         SAXBuilder builder = new SAXBuilder(XMLReaders.XSDVALIDATING);
         try
@@ -64,16 +76,17 @@ public class Settings
             Document settingsDoc = builder.build(Main.settingsFile);
             Element rootElement = settingsDoc.getRootElement();
 
-			int startupWait = Integer.parseInt(rootElement.getChild("startupWait").getValue());
+			startupWait = Integer.parseInt(rootElement.getChild("startupWait").getValue());
 			System.out.println("waiting for " + startupWait + "s as specified...");
 			Thread.sleep(startupWait * 1000);
-			setDmxAddress(Short.parseShort(rootElement.getChild("dmxAddress").getValue()));
-            setPixelCount(Integer.parseInt(rootElement.getChild("pixelCount").getValue()));
-            Main.transmitter = OPCTransmitter.deserialize(rootElement.getChild("opcTransmitter"));
-            Main.adapter = DMXOPCAdapter.deserialize(rootElement.getChild("adapter"));
-            Main.listener = DMXListener.deserialize(rootElement.getChild("listener"));
-            setWebServerPort(Short.parseShort((rootElement.getChild("httpServerPort").getValue())));
 
+			dmxAddress = (Short.parseShort(rootElement.getChild("dmxAddress").getValue()));
+            pixelsX = (Integer.parseInt(rootElement.getChild("pixelsX").getValue()));
+			pixelsY = (Integer.parseInt(rootElement.getChild("pixelsY").getValue()));
+            Main.getInstance().setTransmitter(OPCTransmitter.deserialize(rootElement.getChild("opcTransmitter")));
+            Main.getInstance().setAdapter(DMXOPCAdapter.deserialize(rootElement.getChild("adapter")));
+            Main.getInstance().setListener(DMXListener.deserialize(rootElement.getChild("listener")));
+            webServerPort = (Short.parseShort((rootElement.getChild("httpServerPort").getValue())));
         }
         catch (JDOMException | IOException | InterruptedException e)
         {
@@ -81,33 +94,54 @@ public class Settings
         }
 	}
 
-    public static short getDmxAddress()
+    public short getDmxAddress()
     {
         return dmxAddress;
     }
-
-    public static void setDmxAddress(short dmxAddress)
+    public void setDmxAddress(short dmxAddress)
     {
-        Settings.dmxAddress = dmxAddress;
+        this.dmxAddress = dmxAddress;
     }
 
-    public static int getPixelCount()
+    public int getPixelCount()
     {
-        return pixelCount;
+        return pixelsX * pixelsY;
     }
 
-    public static void setPixelCount(int pixelCount)
-    {
-        Settings.pixelCount = pixelCount;
-    }
+	public int getPixelsX()
+	{
+		return pixelsX;
+	}
+	public void setPixelsX(int pixelsX)
+	{
+		this.pixelsX = pixelsX;
+	}
 
-    public static int getWebServerPort()
+	public int getPixelsY()
+	{
+		return pixelsY;
+	}
+	public void setPixelsY(int pixelsY)
+	{
+		this.pixelsY = pixelsY;
+	}
+
+    public int getWebServerPort()
     {
         return webServerPort;
     }
-
-    public static void setWebServerPort(int webServerPort)
+    public void setWebServerPort(int webServerPort)
     {
-        Settings.webServerPort = webServerPort;
+		this.webServerPort = webServerPort;
     }
+
+	public int getStartupWait()
+	{
+		return startupWait;
+	}
+
+	public void setStartupWait(int startupWait)
+	{
+		this.startupWait = startupWait;
+	}
 }

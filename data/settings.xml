@@ -3,8 +3,9 @@
     <dmxAddress>460</dmxAddress>
     <httpServerPort>6789</httpServerPort>
     <listener type="sacn" universe="1" listenAdapter="auto"/>
-    <pixelCount>53</pixelCount>
-    <adapter method="program" xCount="53" yCount="1" />
+    <pixelsX>53</pixelsX>
+    <pixelsY>1</pixelsY>
+    <adapter method="program" />
     <opcTransmitter destination="localhost" channel="0" />
-    <startupWait>10</startupWait>
+    <startupWait>1</startupWait>
 </settings>

@@ -61,7 +61,7 @@ public abstract class DMXListener
         try
         {
             buffer.clear();
-            SocketAddress address = channel.receive(buffer);
+			SocketAddress address = channel.receive(buffer);
             packet.parse(buffer);
             if(packet.getUniverse() == universe)
             {
@@ -71,7 +71,7 @@ public abstract class DMXListener
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         return false;
     }
@@ -103,4 +103,20 @@ public abstract class DMXListener
     public abstract Element serialize();
 
     public abstract void reload();
+
+	public abstract void close();
+
+	public abstract String getTypeString();
+
+	public static DMXListener create(String type, short universe)
+	{
+		switch(type)
+		{
+			default:
+			case "sacn":
+				return new SACNListener(universe, "auto");
+			case "artnet":
+				return new ArtNetListener(universe);
+		}
+	}
 }

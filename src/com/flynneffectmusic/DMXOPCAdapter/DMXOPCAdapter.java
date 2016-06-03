@@ -1,5 +1,6 @@
 package com.flynneffectmusic.DMXOPCAdapter;
 
+import com.flynneffectmusic.Main;
 import com.flynneffectmusic.Settings;
 import org.jdom2.Element;
 
@@ -44,13 +45,7 @@ public abstract class DMXOPCAdapter
             case "gradient":
                 return new GradientAdapter();
             case "program":
-                int xCount = Integer.parseInt(adapter.getAttributeValue("xCount"));
-                int yCount = Integer.parseInt(adapter.getAttributeValue("yCount"));
-                if(xCount * yCount != Settings.getPixelCount())
-                {
-                    throw new IllegalArgumentException("Pixel Count (" + Settings.getPixelCount() + ") does not match adapter x*y (" + xCount + "x" + yCount +")");
-                }
-                return new ProgramAdapter(xCount, yCount);
+                return new ProgramAdapter();
         }
     }
 }

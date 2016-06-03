@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="Copy Assets">
+    <output-path>$PROJECT_DIR$/jar</output-path>
+    <root id="root">
+      <element id="directory" name="assets">
+        <element id="dir-copy" path="$PROJECT_DIR$/WebUI/assets" />
+      </element>
+    </root>
+  </artifact>
+</component>

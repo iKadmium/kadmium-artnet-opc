@@ -1,4 +1,4 @@
-package dmxGroupControl;
+package com.flynneffectmusic;
 
 import com.flynneffectmusic.DMXOPCAdapter.programs.Pixel;
 import javafx.geometry.Point2D;

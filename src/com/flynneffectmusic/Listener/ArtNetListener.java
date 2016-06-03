@@ -57,4 +57,23 @@ public class ArtNetListener extends DMXListener
         }
     }
 
+	@Override
+	public void close()
+	{
+		try
+		{
+			channel.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public String getTypeString()
+	{
+		return "artnet";
+	}
+
 }

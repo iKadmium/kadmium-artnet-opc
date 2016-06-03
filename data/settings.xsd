@@ -12,8 +12,6 @@
     <xsd:complexType name="adapter">
         <xsd:sequence/>
         <xsd:attribute name="method" type="xsd:string"/>
-        <xsd:attribute name="xCount" type="xsd:positiveInteger"/>
-        <xsd:attribute name="yCount" type="xsd:positiveInteger"/>
     </xsd:complexType>
 
     <xsd:complexType name="opcTransmitter">
@@ -27,7 +25,8 @@
             <xsd:element name="dmxAddress" type="xsd:unsignedShort"/>
             <xsd:element name="httpServerPort" type="xsd:unsignedShort"/>
             <xsd:element name="listener" type="listener"/>
-            <xsd:element name="pixelCount" type="xsd:unsignedShort"/>
+            <xsd:element name="pixelsX" type="xsd:unsignedShort"/>
+            <xsd:element name="pixelsY" type="xsd:unsignedShort"/>
             <xsd:element name="adapter" type="adapter"/>
             <xsd:element name="opcTransmitter" type="opcTransmitter"/>
             <xsd:element name="startupWait" type="xsd:int"/>

@@ -4,6 +4,7 @@ package com.flynneffectmusic.DMXOPCAdapter;
 import com.flynneffectmusic.DMXOPCAdapter.programs.*;
 import com.flynneffectmusic.DMXOPCAdapter.programs.effects.Apeshit;
 import com.flynneffectmusic.DMXOPCAdapter.programs.effects.Strobe;
+import com.flynneffectmusic.Main;
 import com.sun.istack.internal.NotNull;
 import javafx.scene.paint.Color;
 import org.jdom2.Document;
@@ -35,13 +36,13 @@ public class ProgramAdapter extends DMXOPCAdapter
     private boolean demoMode = false;
     private boolean autoAnimate = false;
 
-    public ProgramAdapter(int xCount, int yCount)
+    public ProgramAdapter()
     {
-        fixture = new PixelFixture(xCount, yCount);
+        fixture = new PixelFixture(Main.getInstance().getSettings().getPixelsX(), Main.getInstance().getSettings().getPixelsY());
         programs = LoadPrograms();
         activeProgram = programs.get(0);
         strobeEffect = new Strobe(1);
-        apeshitEffect = new Apeshit(1, 1);
+        apeshitEffect = new Apeshit(1, Main.getInstance().getSettings().getPixelCount() / 4 );
     }
 
     private ArrayList<Program> LoadPrograms()
@@ -121,8 +122,6 @@ public class ProgramAdapter extends DMXOPCAdapter
         Element adapterElement = new Element("adapter");
 
         adapterElement.setAttribute("method", "program");
-        adapterElement.setAttribute("xCount", fixture.GetXDimensions() + "");
-        adapterElement.setAttribute("yCount", fixture.GetYDimensions() + "");
         return adapterElement;
     }
 
